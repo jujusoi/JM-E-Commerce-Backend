@@ -1,11 +1,6 @@
 const router = require('express').Router();
+const routeRoutes = require('./api');
 
-router.get('/', async (req, res) => {
-    try {
-        res.status(200).json('/Api works');
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+router.use('/api', routeRoutes);
 
 module.exports = router;

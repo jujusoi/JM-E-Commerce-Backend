@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.use('/api', routes);
+app.use(routes);
 
 sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log('Server up'));
