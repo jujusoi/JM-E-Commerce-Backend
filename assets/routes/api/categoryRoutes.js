@@ -5,6 +5,9 @@ category.get('/', async (req, res) => {
     try { 
         const categoryData = await Category.findAll({
             include: [{ model: Product }],
+            order: [
+                [ 'id', 'ASC' ],
+            ],
         });
         res.status(200).json(categoryData);
      } catch (err) {
