@@ -36,7 +36,7 @@ category.post('/', async (req, res) => {
     }
 });
 
-category.delete('/:id', async (req, res) => {
+category.delete('/:id', async (rej, res) => {
     try {
         const categoryData = await Category.destroy({
             where: {
