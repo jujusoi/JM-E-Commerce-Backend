@@ -1,0 +1,80 @@
+[
+    {
+        "product_name": "Dog food",
+        "price": "8.00",
+        "stock": "150",
+        "category_id": "1"
+    },
+    {
+        "product_name": "Cat food",
+        "price": "6.00",
+        "stock": "400",
+        "category_id": "1"
+    },
+    {
+        "product_name": "Squeaky toy",
+        "price": "10.00",
+        "stock": "40",
+        "category_id": "1"
+    },
+    {
+        "product_name": "Fish bowl",
+        "price": "25.00",
+        "stock": "25",
+        "category_id": "1"
+    },
+    {
+        "product_name": "Coke",
+        "price": "7.00",
+        "stock": "1000",
+        "category_id": "2"
+    },
+    {
+        "product_name": "Tomato",
+        "price": "3.00",
+        "stock": "10000",
+        "category_id": "2"
+    },
+    {
+        "product_name": "Xbox",
+        "price": "700.00",
+        "stock": "13",
+        "category_id": "3"
+    },
+    {
+        "product_name": "TV",
+        "price": "200.00",
+        "stock": "25",
+        "category_id": "3"
+    },
+    {
+        "product_name": "iPhone",
+        "price": "1500.00",
+        "stock": "3",
+        "category_id": "3"
+    },
+    {
+        "product_name": "Laptop",
+        "price": "1800.00",
+        "stock": "8",
+        "category_id": "3"
+    },
+    {
+        "product_name": "Dumbbell",
+        "price": "15.00",
+        "stock": "35",
+        "category_id": "4"
+    },
+    {
+        "product_name": "Netflix",
+        "price": "17.00",
+        "stock": "203",
+        "category_id": "5"
+    },
+    {
+        "product_name": "Hulu",
+        "price": "15.00",
+        "stock": "423",
+        "category_id": "5"
+    }
+]
