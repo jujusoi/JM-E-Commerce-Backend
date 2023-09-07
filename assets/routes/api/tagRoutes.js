@@ -34,7 +34,37 @@ tag.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(`Could not insert value into database, ${err}`);
     }
- })
+ });
+
+ tag.delete('/:id', async (req, res) => {
+    try {
+        const tagData = await Tag.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.status(200).json(tagData);
+    } catch (err) {
+        res.status(500).json(`Could not remove value from database, ${err}`);
+    }
+ });
+
+ tag.put('/:id', async (req, res) => {
+    try {
+        const tagData = await Tag.findByPk(req.params.id);
+        tagData.set({
+            tag_name: req.body.tag_name,
+        });
+        if (!tagData) {
+            res.status(400).json(`Tag does not exist!`);
+        } else {
+        tagData.save();
+        res.status(200).json(tagData);
+        }
+    } catch (err) {
+        res.status(500).json(`Could not update value from database, ${err}`);
+    }
+ });
 
  module.exports = tag;
  
