@@ -1,11 +1,11 @@
 const product = require('express').Router();
-const { Product, Category } = require('../../models');
+const { Product, Category, Tag } = require('../../models');
 const category = require('./categoryRoutes');
 
 product.get('/', async (req, res) => {
     try { 
         const productData = await Product.findAll({
-            include: [{ model: Category }],
+            include: [{ model: Category }, { model: Tag }],
             order: [
                 [ 'category_id', 'ASC'],
             ],
@@ -72,5 +72,6 @@ product.get('/', async (req, res) => {
         res.status(500).json(`Could not update database information, ${err}`);
     }
  })
+ 
  module.exports = product;
  

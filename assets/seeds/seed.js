@@ -1,9 +1,11 @@
 const sequelize = require('../config/connection');
 
-const { Category, Product } = require('../models');
+const { Category, Product, Tag, ProductTag } = require('../models');
 
 const categoryData = require('./categorySeeds.json');
 const productData = require('./productSeeds.json');
+const tagData = require('./tagSeeds.json');
+const productTagData = require('./productTagSeeds.json');
 
 const seed = async () => {
     try {
@@ -11,6 +13,8 @@ const seed = async () => {
 
         await Category.bulkCreate(categoryData);
         await Product.bulkCreate(productData);
+        await Tag.bulkCreate(tagData);
+        await ProductTag.bulkCreate(productTagData);
 
         console.log(`Data seeded`);
         process.exit(0);
