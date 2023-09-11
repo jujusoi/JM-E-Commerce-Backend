@@ -46,7 +46,7 @@ category.delete('/:id', async (rej, res) => {
                 id: req.params.id,
             },
         });
-        res.status(200).json(categoryData);
+        res.status(200).json(`Product deleted!`);
     } catch (err) {
         res.status(500).json(`Could not remove information from database, ${err}`);
     }

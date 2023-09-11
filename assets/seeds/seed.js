@@ -22,7 +22,6 @@ const seed = async () => {
         console.error(`Could not seed data, ${err}`);
         process.exit(1);
     }
-
 };
 
 seed();

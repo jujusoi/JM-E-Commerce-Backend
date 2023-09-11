@@ -43,7 +43,7 @@ tag.get('/', async (req, res) => {
                 id: req.params.id,
             },
         });
-        res.status(200).json(tagData);
+        res.status(200).json(`Product deleted!`);
     } catch (err) {
         res.status(500).json(`Could not remove value from database, ${err}`);
     }
