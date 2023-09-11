@@ -31,11 +31,18 @@ Either:
 
 ## Usage
 
-When executing the command 'npm start' in the CLI, users are presented with a prompt asking what they want to do. This prompt is accompanied by a list of choices. Moving down the list with arrow keys, and pressing enter on either option will begin the process of the corresponding selection.
+Run 'npm i' in the main directory to install all required package dependancies.
 
-As there's too many proccesses to describe accurately, I'll go over the simple ones. When selecting any 'View All *' choice, it will present the user with a table filled with all the accurate information of the specific selection. Viewing all roles will show you a table of roles, with both the name of the role, and the id. Viewing all departments will do the same, and viewing all employees will show you a detailed list of employees with their roles, departments, salary, etc. 
+To initialize the database, users must login to the account currently registered on the device, by typing 'mysql -u root -p' in the CLI. Upon successful login, users must source the schema in the db directory by typing 'source db/schema.sql'. This will initialize the database that's in use for the project. Exit the mysql shell.
 
-For modifying information in the database, usually all the user has to do is follow the instructions found whenever a prompt is chosen, and choose from a list that fits their needs.
+After initializing the db, the database must be seeded with information. Running 'node .\seeds\seed.js' in the main directory of the CLI will input tables with specified information from the json files in them. While starting the server without seeding will work, trying to access them via one of the url routes will display an empty array.
+
+Just before initialization, users MUST create a .env file in the main directory, as the repo ignores the one provided. Once created, the main contents should look like such:
+DB_NAME='ecommerce_db'
+DB_USER='root'
+DB_PASSWORD='your-username-here'
+
+Once everything has been initialized, users must run 'npm start' in the main directory via the CLI, which will start the server. To access the routes, open Insomnia, create a new request, and use 'http://localhost:3001/api/' with a desired model after /api/. Currently, users can use GET, GET by id, POST, PUT by id, and DELETE by id requests on all 3 main models (/categories, /products, /tags), however, to add tags to specific products, users must edit the junction table through /product-tags, where only GET, GET by id, POST, and DELETE requests are permitted.
 
 Video example:
 https://watch.screencastify.com/v/DzGDe8J1suyxOHbWQv7C
@@ -45,14 +52,11 @@ https://github.com/jujusoi/JM-E-Commerce-Backend
 
 ## Features
 
-- Command line interface that accepts user input.
-- Presented with the required prompt options, and more.
-- Choosing view all * prompts format a table displaying each piece of information for the corresponding.
-- Choosing add * prompts allow users to add certain employees, roles and departments.
-- Update * prompts allow users to update certain information on employees.
-- View by * prompts allow users to view certain information that suit certain specified criteria.
-- Delete * prompts allow users to delete certain information from a database.
-- Total budget by department shows users the total annual cost of each department based on how many employees have certain roles.
+- Able to connect to the database using Sequelize, through the .env.
+- Entering source schema and seed commands will create and fill the database with test information.
+- Invoking the application with npm start will sync the models to the MySQL database and run the server on localhost.
+- Running GET routes on all models through the path will display all relevant table data in JSON.
+- Testing POST, PUT and DELETE requests on all models through the path allows users to successfully create, update and delete data in the db.
 
 ## Contributing
 
