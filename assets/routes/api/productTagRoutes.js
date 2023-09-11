@@ -4,7 +4,11 @@ const product = require('./productRoutes');
 
 productTag.get('/', async (req, res) => {
     try { 
-        const productTagData = await ProductTag.findAll();
+        const productTagData = await ProductTag.findAll({
+            order: [
+                [ 'id', 'ASC' ],
+            ],
+        });
         res.status(200).json(productTagData)
      } catch (err) {
          res.status(500).json(`Failed, ${err}`);
@@ -40,7 +44,7 @@ productTag.get('/', async (req, res) => {
                 id: req.params.id,
             },
         });
-        res.status(200).json(`Product deleted!`);
+        res.status(200).json(`Product Tag deleted!`);
     } catch (err) {
         res.status(500).json(`Could not remove value from database, ${err}`);
     }

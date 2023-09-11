@@ -39,14 +39,14 @@ category.post('/', async (req, res) => {
     }
 });
 
-category.delete('/:id', async (rej, res) => {
+category.delete('/:id', async (req, res) => {
     try {
         const categoryData = await Category.destroy({
             where: {
                 id: req.params.id,
             },
         });
-        res.status(200).json(`Product deleted!`);
+        res.status(200).json(`Category deleted!`);
     } catch (err) {
         res.status(500).json(`Could not remove information from database, ${err}`);
     }
